@@ -28,6 +28,7 @@
  *
 */
 
+
 function init() {
     const title = document.getElementById("title").value;
     const article = document.getElementById("article").value;
@@ -76,6 +77,8 @@ function makeNewPost(token, newPost64, oldPostSHA) {
         .then(r => r.json())
         .then(function (data) {
             console.log(data);
+
+            loadPage();
         });
 }
 

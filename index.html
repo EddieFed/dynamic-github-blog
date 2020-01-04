@@ -6,8 +6,45 @@
 
     <script src="post.js"></script>
 
+    <script>
+        function loadPage() {
+            fetch("https://api.github.com/repos/EddieFed/Dynamic-Github-Blog/contents/posts.json")
+                .then(r => r.json())
+                .then(function(d) {
+                    const oldPostContentDecoded = JSON.parse(atob(d.content));
+                    console.log("Old Post Decoded: " + JSON.stringify(oldPostContentDecoded));
+
+                    let posts = document.getElementById("posts");
+
+                    // Must empty the DOM any time there is a new post added
+                    while (posts.hasChildNodes()) {
+                        posts.removeChild(posts.firstChild);
+                    }
+
+                    oldPostContentDecoded.articles.forEach((article) => {
+                        let post = document.createElement("DIV");
+                        let title = document.createElement("P");
+                        let body = document.createElement("P");
+                        let date = document.createElement("P");
+                        let br = document.createElement("BR");
+
+                        title.innerText = article.title;
+                        body.innerText = article.body;
+                        date.innerText = article.date;
+
+                        post.appendChild(title);
+                        post.appendChild(body);
+                        post.appendChild(date);
+                        post.appendChild(br);
+                        posts.appendChild(post);
+                    })
+
+                });
+        }
+    </script>
+
 </head>
-<body>
+<body onload="loadPage()">
 
     <label>
         <textarea rows="1" cols="150" placeholder="Add a Title!" id="title"></textarea>
@@ -22,6 +59,12 @@
     </label>
     <br>
     <button onclick="init()">Post!</button>
+    <br>
+    <br>
+    <br>
+    <div id="posts">
+
+    </div>
 
 </body>
 </html>
