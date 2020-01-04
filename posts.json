@@ -4,10 +4,9 @@
   "profileImgSrc": "",
   "articles": [
     {
-      "title": "title",
-      "body": "body",
-      "time": "time",
-      "date": "date"
+      "title": "Generic title",
+      "body": "Generic body",
+      "date": "Generic date"
     }
   ]
 }
