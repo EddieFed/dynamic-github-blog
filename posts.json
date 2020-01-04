@@ -1,3 +1,13 @@
 {
-
+  "website": "blog.eddiefed.com",
+  "author": "Eddie Federmeyer",
+  "profileImgSrc": "",
+  "articles" : [
+    {
+      "title": "title",
+      "body": "body",
+      "time": "time",
+      "date": "date"
+    }
+  ]
 }
