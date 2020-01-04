@@ -1,13 +1,1 @@
-{
-  "website": "blog.eddiefed.com",
-  "author": "Eddie Federmeyer",
-  "profileImgSrc": "",
-  "articles": [
-    {
-      "title": "title",
-      "body": "body",
-      "time": "time",
-      "date": "date"
-    }
-  ]
-}
+{"website":"blog.eddiefed.com","author":"Eddie Federmeyer","profileImgSrc":"","articles":[{"title":"title","body":"body","time":"time","date":"date"},{"title":"Generic Title","body":"Type Article here!","time":"1578127383636","date":"date - todo"}]}
