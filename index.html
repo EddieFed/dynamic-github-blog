@@ -22,19 +22,24 @@
                     }
 
                     oldPostContentDecoded.articles.forEach((article) => {
+
+                        // TODO
+                        // Make so links to pages generate instead of full thing
+
                         let post = document.createElement("DIV");
-                        let title = document.createElement("P");
-                        let body = document.createElement("P");
-                        let date = document.createElement("P");
+                        let title = document.createElement("A");
+                        // let body = document.createElement("P");
+                        // let date = document.createElement("P");
                         let br = document.createElement("BR");
 
                         title.innerText = article.title;
-                        body.innerText = article.body;
-                        date.innerText = article.date;
+                        title.href = "/articles/" + article.title.replace(" ", "-");
+                        // body.innerText = article.body;
+                        // date.innerText = article.date;
 
                         post.appendChild(title);
-                        post.appendChild(body);
-                        post.appendChild(date);
+                        // post.appendChild(body);
+                        // post.appendChild(date);
                         post.appendChild(br);
                         posts.appendChild(post);
                     })
