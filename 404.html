@@ -7,25 +7,53 @@
         function load() {
             const url = window.location.href;
 
-            // const suburl = url.substring(url.indexOf(".com", + 4));
-            const suburl = url.substring(url.indexOf("404.html?") + 9);
-            console.log(suburl);
+            // const title = url.substring(url.indexOf("articles/", + 9)).replace("-", " ");
+            const title = url.substring;
 
-            let articles = [];
+            console.log(title);
 
             fetch("https://api.github.com/repos/EddieFed/Dynamic-Github-Blog/contents/posts.json")
                 .then(r => r.json())
-                .then(function(data) {
-                    const jsonData = JSON.parse(atob(data.content));
-                    console.log("hello");
-                    articles = jsonData.articles;
+                .then(function(d) {
+                    const data = JSON.parse(atob(d.content));
+                    // console.log("Old Post Decoded: " + JSON.stringify(data));
+
+                    let articles = data.articles;
+                    console.log(articles[0]);
+
+                    articles.forEach((article) => {
+                        if(title === article.title) {
+                            console.log("Match!");
+                            let post = document.createElement("DIV");
+                            let title = document.createElement("P");
+                            let body = document.createElement("P");
+                            let date = document.createElement("P");
+                            let br = document.createElement("BR");
+
+                            title.innerText = article.title;
+                            body.innerText = article.body;
+                            date.innerText = article.date;
+
+                            post.appendChild(title);
+                            post.appendChild(body);
+                            post.appendChild(date);
+                            post.appendChild(br);
+                            posts.appendChild(post);
+
+
+                        }
+                    });
+
                 });
 
-            console.log = articles[0];
         }
     </script>
 </head>
 <body onload="load()">
+
+    <div id="posts">
+        <!--    Dynamically filled    -->
+    </div>
 
 </body>
 </html>
