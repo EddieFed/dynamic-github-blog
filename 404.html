@@ -7,11 +7,13 @@
         function load() {
             const url = window.location.href;
 
-            // TODO
-            // Switch when committing
-            const title = url.substring(url.indexOf("posts/") + 6).replace(/-/g, " ");
-            // const title = url.substring(url.indexOf("404.html?") + 9).replace(/-/g, " ");
-
+            let title;
+            if(isDebug() === false) {
+                title = url.substring(url.indexOf("posts/") + 6).replace(/-/g, " ");
+            }   
+            else {
+                title = url.substring(url.indexOf("404.html?") + 9).replace(/-/g, " ");
+            }
             console.log(title);
 
             fetch("https://api.github.com/repos/EddieFed/Dynamic-Github-Blog/contents/posts.json")
