@@ -12,7 +12,7 @@ function loadPage() {
         
         const sort = document.getElementById("sort").selectedIndex;
         let posts;
-        if(sort === 0) {
+        if(sort === 1) {
             posts = postsFileJSON["articles"];
         }
         else {
