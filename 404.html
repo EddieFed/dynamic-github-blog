@@ -9,8 +9,8 @@
 
             // TODO
             // Switch when committing
-            const title = url.substring(url.indexOf("articles/") + 9).replace("-", " ");
-            // const title = url.substring(url.indexOf("404.html?") + 9).replace("-", " ");
+            const title = url.substring(url.indexOf("articles/") + 9).replace(/-/g, " ");
+            // const title = url.substring(url.indexOf("404.html?") + 9).replace(/-/g, " ");
 
             console.log(title);
 
@@ -18,9 +18,8 @@
                 .then(r => r.json())
                 .then(function(d) {
                     const data = JSON.parse(atob(d.content));
-                    // console.log("Old Post Decoded: " + JSON.stringify(data));
 
-                    let articles = data.articles;
+                    let articles = data["articles"];
                     console.log(articles[0]);
 
                     articles.forEach((article) => {
@@ -32,17 +31,15 @@
                             let date = document.createElement("P");
                             let br = document.createElement("BR");
 
-                            title.innerText = article.title;
-                            body.innerText = article.body;
-                            date.innerText = article.date;
+                            title.innerText = article["title"];
+                            body.innerText = article["body"];
+                            date.innerText = article["date"];
 
                             post.appendChild(title);
                             post.appendChild(body);
                             post.appendChild(date);
                             post.appendChild(br);
                             posts.appendChild(post);
-
-
                         }
                     });
 

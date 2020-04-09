@@ -35,7 +35,7 @@ function loadPage() {
             let listItem = document.createElement("li");
             let link = document.createElement("a");
             link.innerText = title;
-            link.href = "https://blog.eddiefed.com/articles/" + title.replace(" ", "-");
+            link.href = "https://blog.eddiefed.com/articles/" + title.replace(/ /g, "-");
 
             listItem.appendChild(link);
             postList.appendChild(listItem);
