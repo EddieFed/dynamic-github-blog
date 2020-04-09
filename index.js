@@ -11,11 +11,12 @@ function loadPage() {
         const postsFileJSON = JSON.parse(atob(d.content));
         
         const sort = document.getElementById("sort").selectedIndex;
+        console.log("Sort index", sort);
         let posts;
-        if(sort === 1) {
+        if(sort === 1) {    // Oldest
             posts = postsFileJSON["articles"];
         }
-        else {
+        else {              // Newest
             posts = postsFileJSON["articles"].reverse()
         }
 
