@@ -5,57 +5,11 @@
     <title>Dynamic Blog!</title>
 
     <script src="https://blog.eddiefed.com/global/debugOrNot.js"></script>
-    <script>
-        function load() {
-            const url = window.location.href;
-
-            let title;
-            if(isDebug() === false) {
-                title = url.substring(url.indexOf("posts/") + 6).replace(/-/g, " ");
-            }   
-            else {
-                title = url.substring(url.indexOf("404.html?") + 9).replace(/-/g, " ");
-            }
-            console.log(title);
-
-            fetch("https://api.github.com/repos/EddieFed/Dynamic-Github-Blog/contents/posts.json")
-                .then(r => r.json())
-                .then(function(d) {
-                    const data = JSON.parse(atob(d.content));
-
-                    const articles = data["articles"];
-                    // console.log(articles);
-
-                    articles.forEach((article) => {
-                        console.log(article["title"]);
-                        if(title.toLowerCase() === article["title"].toLowerCase()) {
-                            // console.log("Match!");
-                            let post = document.createElement("DIV");
-                            let title = document.createElement("P");
-                            let body = document.createElement("P");
-                            let date = document.createElement("P");
-                            let br = document.createElement("BR");
-
-                            title.innerText = article["title"];
-                            body.innerText = article["body"];
-                            date.innerText = article["date"];
-
-                            post.appendChild(title);
-                            post.appendChild(body);
-                            post.appendChild(date);
-                            post.appendChild(br);
-                            posts.appendChild(post);
-                        }
-                    });
-
-                });
-
-        }
-    </script>
+    <script src="https://blog.eddiefed.com/404.js"></script>
 </head>
-<body onload="load()">
+<body onload="loadPage()">
 
-    <div id="posts">
+    <div id="post">
         <!--    Dynamically filled    -->
     </div>
 
