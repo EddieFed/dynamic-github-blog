@@ -4,54 +4,29 @@
     <meta charset="UTF-8">
     <title>Dynamic Blog!</title>
 
-    <script>
-        function loadPage() {
-            fetch("https://api.github.com/repos/EddieFed/Dynamic-Github-Blog/contents/posts.json")
-                .then(r => r.json())
-                .then(function(d) {
-                    const oldPostContentDecoded = JSON.parse(atob(d.content));
-                    console.log("Old Post Decoded: " + JSON.stringify(oldPostContentDecoded));
+    <!--  Site Logos  -->
+    <link rel="shortcut icon" href="https://www.eddiefed.com/favicon.ico" />
 
-                    let posts = document.getElementById("posts");
-
-                    // Must empty the DOM any time there is a new post added
-                    while (posts.hasChildNodes()) {
-                        posts.removeChild(posts.firstChild);
-                    }
-
-                    oldPostContentDecoded.articles.forEach((article) => {
-
-                        // TODO
-                        // Make so links to pages generate instead of full thing
-
-                        let post = document.createElement("DIV");
-                        let title = document.createElement("A");
-                        // let body = document.createElement("P");
-                        // let date = document.createElement("P");
-                        let br = document.createElement("BR");
-
-                        title.innerText = article.title;
-                        title.href = "/articles/" + article.title.replace(" ", "-");
-                        // body.innerText = article.body;
-                        // date.innerText = article.date;
-
-                        post.appendChild(title);
-                        // post.appendChild(body);
-                        // post.appendChild(date);
-                        post.appendChild(br);
-                        posts.appendChild(post);
-                    })
-
-                });
-        }
-    </script>
+    <script src="./global/debugOrNot.js"></script>
+    <script src="./index.js"></script>
 
 </head>
 <body onload="loadPage()">
 
-    <div id="posts">
-
-    </div>
+    <p><tt>Eddie Federmeyer's</tt> Blog</p>
+    
+    <br>
+    <p>My posts:</p>
+    <p>Sort by: 
+    <select id="sort" onchange="reloadPage()">
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+    </select></p>
+    <ul id="postList">
+        <li>Recent Post 1</li>
+        <li>Recent post 2</li>
+        <li>Recent Post 3</li>
+    </ul>
 
 </body>
 </html>

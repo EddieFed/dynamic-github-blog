@@ -1,3 +1,5 @@
+"use strict";
+
 const POSTS_FILE_API_URL = "https://api.github.com/repos/EddieFed/Dynamic-Github-Blog/contents/posts.json";
 
 function post() {
