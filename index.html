@@ -7,7 +7,7 @@
     <!--  Site Logos  -->
     <link rel="shortcut icon" href="https://www.eddiefed.com/favicon.ico" />
 
-    <script src="./global/debugOrNot.js"></script>
+    <script src="global/config.js"></script>
     <script src="./index.js"></script>
 
 </head>
@@ -18,11 +18,11 @@
     
     <br>
     <p>My posts:</p>
-    <p>Sort by: 
+    <label for="sort">Sort by:</label>
     <select id="sort" onchange="reloadPage()">
         <option value="newest">Newest</option>
         <option value="oldest">Oldest</option>
-    </select></p>
+    </select>
     <ul id="postList">
         <!-- <li>Recent Post 1</li> -->
         <!-- <li>Recent post 2</li> -->

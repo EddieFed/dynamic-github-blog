@@ -1,7 +1,5 @@
 "use strict";
 
-const POSTS_FILE_API_URL = "https://api.github.com/repos/EddieFed/Dynamic-Github-Blog/contents/posts.json";
-
 function loadPage() {
     console.clear();
 
@@ -24,7 +22,7 @@ function loadPage() {
         let postList = document.getElementById("postList");
 
         // Clears any dummy data I have in the file... Only temporary
-        if(isDebug() === false) {
+        if(!DEBUG) {
             clearPage();
         }   
 
@@ -35,8 +33,12 @@ function loadPage() {
             let listItem = document.createElement("li");
             let link = document.createElement("a");
             link.innerText = title;
-            link.href = "https://blog.eddiefed.com/posts/" + title.replace(/ /g, "-");
-
+            if(!DEBUG) {
+                link.href = "https://blog.eddiefed.com/posts/" + title.replace(/ /g, "-");
+            }
+            else{
+                link.href = "http://localhost:63342/Dynamic_Github_Blog/404.html?" + title.replace(/ /g, "-");
+            }
             listItem.appendChild(link);
             postList.appendChild(listItem);
 
@@ -46,7 +48,7 @@ function loadPage() {
 
 function clearPage() {
     let postList = document.getElementById("postList");
-    var children = Array.prototype.slice.call(postList.children);
+    let children = Array.prototype.slice.call(postList.children);
     children.forEach((child) => {
         console.log("removed node");
         postList.removeChild(child);

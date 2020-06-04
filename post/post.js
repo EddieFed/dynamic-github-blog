@@ -1,7 +1,5 @@
 "use strict";
 
-const POSTS_FILE_API_URL = "https://api.github.com/repos/EddieFed/Dynamic-Github-Blog/contents/posts.json";
-
 function post() {
 
     // User authentication
@@ -14,7 +12,7 @@ function post() {
 
     // Post Data
     const title = document.getElementById("title").value;
-    const article = document.getElementById("article").value;
+    const article = document.getElementById("article").innerHTML;
     const topic = document.getElementById("topic").value;
     const newPageJSON = {
         "title": title,
