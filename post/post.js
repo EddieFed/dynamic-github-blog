@@ -12,7 +12,7 @@ function post() {
 
     // Post Data
     const title = document.getElementById("title").value;
-    const article = document.getElementById("article").innerHTML;
+    const article = document.getElementById("article").value;
     const topic = document.getElementById("topic").value;
     const newPageJSON = {
         "title": title,
@@ -59,4 +59,8 @@ function post() {
             
         });
     });
+}
+
+function live() {
+    document.getElementById("live").innerHTML = document.getElementById("article").value;
 }
