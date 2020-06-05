@@ -13,19 +13,26 @@
 </head>
 <body>
 
-    <textarea style="resize: none" rows="1" cols="150" placeholder="Add a Title!" id="title"></textarea>
-    <br>
-    <textarea style="resize: none" rows="20" cols="150" placeholder="Type Your Article Here!" id="article"></textarea>
+    <textarea style="resize: none" rows="1" cols="150" placeholder="Add a Title!" id="title" onkeyup="document.getElementById('live-title').innerHTML = document.getElementById('title').value;"></textarea>
     <br>
     <textarea style="resize: none" rows="1" cols="150" placeholder="Article Topic" id="topic"></textarea>
-
+    <br>
+    <textarea style="resize: none; white-space: pre-wrap;" rows="20" cols="150" placeholder="Type Your Article Here!" id="article" onkeyup="document.getElementById('live-body').innerHTML = document.getElementById('article').value;"></textarea>
     <br>
     <br>
     <textarea style="resize: none" rows="1" cols="50" placeholder="Username" id="username"></textarea>
     <br>
-    <textarea style="resize: none" rows="1", cols="50" placeholder="Password" id="password"></textarea>
+    <textarea style="resize: none" rows="1" cols="50" placeholder="Password" id="password"></textarea>
     <br>
     <button onclick="post()">Post!</button>
 
+    <br>
+    <br>
+    <div style="outline: 2px solid black">
+        <h1 id="live-title">Title</h1>
+        <tt id="live-date">Sat Jan 04 2020 15:05:50 GMT-0600 (CST)</tt>
+        <hr>
+        <div id="live-body">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+    </div>
 </body>
 </html>
