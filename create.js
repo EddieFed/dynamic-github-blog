@@ -10,6 +10,7 @@ function create() {
     <head>
         <meta charset="UTF-8">
         <title>${postTitle}</title>
+        <link rel="shortcut icon" href="https://www.eddiefed.com/favicon.ico" />
     
     </head>
     <body>
@@ -19,8 +20,7 @@ function create() {
             <h4 class="topics">${postTopics}</h4>
             <tt class="date">${date + ""}</tt>
             <hr>
-            <div class="body">${
-		document.getElementById("article").value}</div>  
+            <div class="body">${document.getElementById("article").value}</div>  
         </div>
     
     </body>
