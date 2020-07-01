@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>${postTitle}</title>
+
+</head>
+<body>
+
+    <div class="post">
+        <h1 class="title">First Blog Post!</h1>
+        <h4 class="topics">random</h4>
+        <tt class="date">Thu Jun 04 2020 22:21:38 GMT-0500 (Central Daylight Time)</tt>
+        <hr>
+        <div class="body"><p>\n\n<h4>** Note: This will be a super long post</h4>\n\n<b>So..</b> I finally decided to get this blog up and running!<br>\nI'll mostly be using this as a sort <i>diary/blog/devlog</i>.<br>\nMostly all three and more at once to be honest...\n<br><br>\n\nA couple things for future me first though:\n<ul>\n<li>If you ever dare put any excessive CSS on this page I'll kill future me...</li>\n<li>Anime is good, don't become like Tommy.</li>\n<li>You better finish DoodleDoodleDrawDraw...</li>\n<li>And also the free-games-alert project.</li>\n</ul>\n\nI thought I'd also include a list of crap happening in the world right now so I can look back\n<ul>\n<li>George Floyd protests are happening everywhere. The world is just crazy right now.</li>\n<li>The US is a madhouse, honestly, the political divide here is ridiculous. Honestly it's just saddening.</li>\n<li>COVID-19 is still everywhere in the country.</li>\n</ul>\n\nI think I'm gonna start posting <i>movie/tv/anime</i> reviews for the shows I watch.<br>\nRecently I finished <i>Fruits Basket</i> and I started recently <i>Oreimo</i> I'll write about those soon!\n\n<br>\n<br>\n\nMan this is such a random post. I'm just glad I got this blog thingy working!!\n\n<br>\nOkay BYE!!!\n\n<br>\n<br>\n<img src=\"https://www.eddiefed.com/megumin/1.gif\" width=\"50\">\n<tt>- Eddie</tt> \n\n\n\n\n</p></div>  
+    </div>
+
+</body>
+</html>
