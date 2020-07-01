@@ -2,30 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Post something!</title>
-
-    <!--  Site Logos  -->
+    <title>Create Post!</title>
     <link rel="shortcut icon" href="https://www.eddiefed.com/favicon.ico" />
-
-    <script src="../global/config.js"></script>
-    <script src="./post.js"></script>
+    <script src="./create.js"></script>
 
 </head>
 <body>
-
     <textarea style="resize: none" rows="1" cols="150" placeholder="Add a Title!" id="title" onkeyup="document.getElementById('live-title').innerHTML = document.getElementById('title').value;"></textarea>
     <br>
-    <textarea style="resize: none" rows="1" cols="150" placeholder="Article Topic" id="topic"></textarea>
+    <textarea style="resize: none" rows="1" cols="150" placeholder="Article Topic" id="topics"></textarea>
     <br>
     <textarea style="resize: none; white-space: pre-wrap;" rows="20" cols="150" placeholder="Type Your Article Here!" id="article" onkeyup="document.getElementById('live-body').innerHTML = document.getElementById('article').value;"></textarea>
     <br>
     <br>
-    <textarea style="resize: none" rows="1" cols="50" placeholder="Username" id="username"></textarea>
-    <br>
+<!--    <textarea style="resize: none" rows="1" cols="50" placeholder="Username" id="username"></textarea>-->
+<!--    <br>-->
     <textarea style="resize: none" rows="1" cols="50" placeholder="Password" id="password"></textarea>
     <br>
-    <button onclick="post()">Post!</button>
-
+    <button onclick="create()">Post!</button>
     <br>
     <br>
     <div style="outline: 2px solid black">

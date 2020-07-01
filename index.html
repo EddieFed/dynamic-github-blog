@@ -2,31 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dynamic Blog!</title>
-
-    <!--  Site Logos  -->
+    <title>Home</title>
     <link rel="shortcut icon" href="https://www.eddiefed.com/favicon.ico" />
-
-    <script src="global/config.js"></script>
     <script src="./index.js"></script>
 
 </head>
-<body onload="loadPage()">
+<body onload="loadPage();">
 
     <p><tt>Eddie Federmeyer's</tt> Blog</p>
     <a href="https://www.eddiefed.com/">Home page</a>
-    
+
     <br>
     <p>My posts:</p>
     <label for="sort">Sort by:</label>
-    <select id="sort" onchange="reloadPage()">
+    <select id="sort" onchange="reloadList();">
         <option value="newest">Newest</option>
         <option value="oldest">Oldest</option>
     </select>
+    <select id="topic" onchange="topicSort();">
+        <option value="all topics">all topics</option>
+    </select>
     <ul id="postList">
-        <!-- <li>Recent Post 1</li> -->
-        <!-- <li>Recent post 2</li> -->
-        <!-- <li>Recent Post 3</li> -->
+<!--         <li>Recent Post 1</li>-->
+<!--         <li>Recent post 2</li>-->
+<!--         <li>Recent Post 3</li>-->
     </ul>
 
 </body>
