@@ -1,61 +1,62 @@
 "use strict";
 
+let postListDB;
+
+function makeList(topic="all topics") {
+	const postList = document.getElementById("postList");
+
+	postListDB["posts"].forEach((post) => {
+		const title = post[0] + " ~~ " + post[1];
+		const listItem = document.createElement("li");
+		const link = document.createElement("a");
+
+		link.innerText = title;
+		link.href = "https://blog.eddiefed.com/posts/" + post[0].replace(/ /g, "-") + ".html";
+
+		console.log(topic);
+		if (topic === "all topics" || post[2].includes(topic)) {
+			listItem.appendChild(link);
+			postList.appendChild(listItem);
+		}
+	});
+}
+
+function clearList() {
+	const postList = document.getElementById("postList");
+	const children = Array.prototype.slice.call(postList.children);
+	children.forEach((child) => {
+		// console.log("removed node");
+		postList.removeChild(child);
+	});
+}
+
 function loadPage() {
-    console.clear();
+	fetch("https://api.github.com/repos/eddiefed/dynamic-github-blog/contents/posts/db.json?ref=test2")
+	.then(r => r.json())
+	.then(d => {
+		postListDB = JSON.parse(atob(d["content"]));
 
-    fetch(POSTS_FILE_API_URL)
-    .then(r => r.json())
-    .then(function(d) {
-        const postsFileJSON = JSON.parse(atob(d.content));
-        
-        const sort = document.getElementById("sort").selectedIndex;
-        console.log("Sort index", sort);
-        let posts;
-        if(sort === 1) {    // Oldest
-            posts = postsFileJSON["articles"];
-        }
-        else {              // Newest
-            posts = postsFileJSON["articles"].reverse()
-        }
+		const selectionThingy = document.getElementById("topic");
+		postListDB["topics"].forEach(topic => {
+			const item = document.createElement("option");
+			item.value = topic;
+			item.innerText = topic;
 
-        // Accesses the blank unordered list
-        let postList = document.getElementById("postList");
+			selectionThingy.appendChild(item);
+		});
 
-        // Clears any dummy data I have in the file... Only temporary
-        if(!DEBUG) {
-            clearPage();
-        }   
-
-        posts.forEach((article) => {
-
-            // Creates a new list element and populates it with the link
-            const title = article["title"];
-            let listItem = document.createElement("li");
-            let link = document.createElement("a");
-            link.innerText = title;
-            if(!DEBUG) {
-                link.href = "https://blog.eddiefed.com/posts/" + title.replace(/ /g, "-");
-            }
-            else{
-                link.href = "http://localhost:63342/Dynamic_Github_Blog/404.html?" + title.replace(/ /g, "-");
-            }
-            listItem.appendChild(link);
-            postList.appendChild(listItem);
-
-        });
-    });
+		makeList();
+	});
 }
 
-function clearPage() {
-    let postList = document.getElementById("postList");
-    let children = Array.prototype.slice.call(postList.children);
-    children.forEach((child) => {
-        console.log("removed node");
-        postList.removeChild(child);
-    });
+function reloadList() {
+	postListDB["posts"] = postListDB["posts"].reverse();
+	clearList();
+	makeList();
 }
 
-function reloadPage() {
-    clearPage();
-    loadPage();
+function topicSort() {
+	const topic = document.getElementById("topic").value;
+	clearList();
+	makeList(topic);
 }

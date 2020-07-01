@@ -1,0 +1,22 @@
+/posts
+	db.json
+	post1.html
+	post2.html
+	post3.html
+
+index.html
+index.js
+
+create.html
+create.js
+
+_____________
+
+Index.js will search the db.json for a list of all posts and their topics. At the same time, each post will be it's own independent page.
+
+db.json will be organized as follows
+
+[
+    ["title", "Date string", ["topic1", "topic2", "topic3"]],
+    ["title2", "Date string2", ["topic4", "topic2", "topic5"]]
+]
