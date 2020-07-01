@@ -1,1 +1,10 @@
-{"topics":["topic1","topic2","topic3","topic4","topic5","topic6"],"posts":[["title","Date string",["topic1","topic2","topic3"]],["title2","Date string2",["topic4","topic2","topic5"]],["title3","7/1/2020",["topic6"]]]}
+{
+    "topics": ["random", "reflection", "anime", "games", "covid19"],
+    "posts": [
+        ["First Blog Post!", "6/4/2020", ["random"]],
+        ["My Bucket List and some life reflections", "6/8/2020", ["reflection"]],
+        ["Crazy Anime today", "6/9/2020", ["random", "anime"]],
+        ["Destiny 2 & Europe post update!", "6/11/2020", ["random", "games"]],
+        ["Diary of a Boy in Quarantine", "6/25/2020", ["random", "covid19"]]
+    ]
+}
