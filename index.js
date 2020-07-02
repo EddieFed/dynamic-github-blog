@@ -11,7 +11,7 @@ function makeList(topic="all topics") {
 		const link = document.createElement("a");
 
 		link.innerText = title;
-		link.href = "https://blog.eddiefed.com/posts/" + post[0].replace(/ /g, "-") + ".html";
+		link.href = "https://blog.eddiefed.com/posts/" + (post[0].replace(/ /g, "-")).toLowerCase() + ".html";
 
 		console.log(topic);
 		if (topic === "all topics" || post[2].includes(topic)) {
