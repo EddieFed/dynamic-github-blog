@@ -35,7 +35,6 @@ function create() {
 			"Authorization": auth
 		},
 		body: JSON.stringify({
-			"branch": "test2",
 			"message": postTitle,
 			"content": btoa(postTemplate)
 		})
@@ -44,7 +43,7 @@ function create() {
 	.then(d => console.log(d));
 
 	// Update db.json
-	fetch(`https://api.github.com/repos/eddiefed/dynamic-github-blog/contents/posts/db.json?ref=test2`)
+	fetch(`https://api.github.com/repos/eddiefed/dynamic-github-blog/contents/posts/db.json`)
 	.then(r => r.json())
 	.then(d => {
 		let content = JSON.parse(atob(d["content"]));
@@ -63,7 +62,6 @@ function create() {
 				"Authorization": auth
 			},
 			body: JSON.stringify({
-				"branch": "test2",
 				"message": postTitle,
 				"content": btoa(JSON.stringify(content)),
 				"sha": d["sha"]
