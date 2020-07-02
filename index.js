@@ -31,7 +31,7 @@ function clearList() {
 }
 
 function loadPage() {
-	fetch("https://api.github.com/repos/eddiefed/dynamic-github-blog/contents/posts/db.json?ref=test2")
+	fetch("https://api.github.com/repos/eddiefed/dynamic-github-blog/contents/posts/db.json")
 	.then(r => r.json())
 	.then(d => {
 		postListDB = JSON.parse(atob(d["content"]));

@@ -40,36 +40,35 @@ function create() {
 		})
 	})
 	.then(r => r.json())
-	.then(d => console.log(d));
-
-	// Update db.json
-	fetch(`https://api.github.com/repos/eddiefed/dynamic-github-blog/contents/posts/db.json`)
-	.then(r => r.json())
 	.then(d => {
-		let content = JSON.parse(atob(d["content"]));
-		content["posts"].push([postTitle, ((date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear()), postTopics.split(" ")]);
 
-		postTopics.split(" ").forEach(i => {
-			if (!content["topics"].includes(i)) {
-				content["topics"].push(i);
-			}
+		// Update db.json
+		fetch(`https://api.github.com/repos/eddiefed/dynamic-github-blog/contents/posts/db.json`)
+			.then(r2 => r2.json())
+			.then(d2 => {
+				let content = JSON.parse(atob(d["content"]));
+				content["posts"].push([postTitle, ((date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear()), postTopics.split(" ")]);
+
+				postTopics.split(" ").forEach(i => {
+					if (!content["topics"].includes(i)) {
+						content["topics"].push(i);
+					}
+				});
+
+				fetch(`https://api.github.com/repos/eddiefed/dynamic-github-blog/contents/posts/db.json`, {
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json",
+						"Authorization": auth
+					},
+					body: JSON.stringify({
+						"message": postTitle,
+						"content": btoa(JSON.stringify(content)),
+						"sha": d2["sha"]
+					})
+				})
+					.then(r3 => r3.json())
+					.then();
 		});
-
-		fetch(`https://api.github.com/repos/eddiefed/dynamic-github-blog/contents/posts/db.json`, {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-				"Authorization": auth
-			},
-			body: JSON.stringify({
-				"message": postTitle,
-				"content": btoa(JSON.stringify(content)),
-				"sha": d["sha"]
-			})
-		})
-		.then(r2 => r2.json())
-		.then(d2 => console.log(d2));
-
 	});
-
 }
