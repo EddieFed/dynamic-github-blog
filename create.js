@@ -46,7 +46,7 @@ function create() {
 		fetch(`https://api.github.com/repos/eddiefed/dynamic-github-blog/contents/posts/db.json`)
 			.then(r2 => r2.json())
 			.then(d2 => {
-				let content = JSON.parse(atob(d["content"]));
+				let content = JSON.parse(atob(d2["content"]));
 				content["posts"].push([postTitle, ((date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear()), postTopics.split(" ")]);
 
 				postTopics.split(" ").forEach(i => {
