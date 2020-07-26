@@ -13,7 +13,7 @@ function makeList(topic="all topics") {
 		link.innerText = title;
 		link.href = "https://blog.eddiefed.com/posts/" + (post[0].replace(/ /g, "-")).toLowerCase() + ".html";
 
-		console.log(topic);
+		// console.log(topic);
 		if (topic === "all topics" || post[2].includes(topic)) {
 			listItem.appendChild(link);
 			postList.appendChild(listItem);
@@ -35,6 +35,7 @@ function loadPage() {
 	.then(r => r.json())
 	.then(d => {
 		postListDB = JSON.parse(atob(d["content"]));
+		postListDB["posts"] = postListDB["posts"].reverse();
 
 		const selectionThingy = document.getElementById("topic");
 		postListDB["topics"].forEach(topic => {
